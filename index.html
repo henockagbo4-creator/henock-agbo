@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Henock Agbo — Chimiste, inventeur, écrivain, bâtisseur d'IA</title>
+<meta name="description" content="Henock Agbo, 16 ans, Côte d'Ivoire. Chimie, invention, écriture, intelligence artificielle : le parcours d'un hyperpolymathe autodidacte, de l'électronique bric[...]
+<link rel="canonical" href="https://henockagbo.netlify.app/">
+<meta property="og:title" content="Henock Agbo — un seul courant, plusieurs circuits">
+<meta property="og:description" content="Chimie, invention, écriture, intelligence artificielle. Le parcours d'un hyperpolymathe de 16 ans né en Côte d'Ivoire.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,400;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&[...]
+<style>
+  :root{
+    --void:#0A0E14;
+    --panel:#111925;
+    --panel-soft: rgba(255,255,255,0.035);
+    --border: rgba(255,255,255,0.08);
+    --line:#213040;
+    --cyan:#5EE6D0;
+    --cyan-dim: rgba(94,230,208,0.14);
+    --amber:#E8A857;
+    --amber-dim: rgba(232,168,87,0.14);
+    --text-hi:#E9EEF2;
+    --text-lo:#8B98A6;
+    --text-faint:#5B6774;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--void);
+    color:var(--text-hi);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--cyan-dim); color:var(--cyan);}
+
+  a{color:var(--cyan); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  .wrap{max-width:1080px; margin:0 auto; padding:0 24px;}
+
+  h1,h2,h3{font-family:'Space Grotesk', sans-serif; letter-spacing:-0.01em;}
+
+  .mono{font-family:'IBM Plex Mono', monospace;}
+
+  /* ===== background circuit texture ===== */
+  .circuit-bg{
+    position:fixed; inset:0; z-index:0; pointer-events:none;
+    opacity:0.5;
+  }
+  .circuit-bg svg{width:100%; height:100%;}
+  .circuit-bg path{
+    fill:none; stroke:var(--line); stroke-width:1;
+  }
+  .circuit-bg .pulse{
+    stroke:var(--cyan);
+    stroke-width:1.4;
+    stroke-dasharray:6 380;
+    animation: travel 7s linear infinite;
+    opacity:0.7;
+  }
+  .circuit-bg .pulse.amber{stroke:var(--amber); animation-duration:9s; animation-delay:1.5s;}
+  .circuit-bg .pulse.delay2{animation-delay:3s;}
+  .circuit-bg circle{fill:var(--line);}
+
+  @keyframes travel{
+    from{stroke-dashoffset:0;}
+    to{stroke-dashoffset:-1000;}
+  }
+
+  /* ===== hero ===== */
+  header{
+    position:relative; z-index:1;
+    min-height:92vh;
+    display:flex; flex-direction:column; justify-content:center;
+    padding:80px 0 60px;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--cyan); margin-bottom:22px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{
+    content:''; width:8px; height:8px; border-radius:50%;
+    background:var(--cyan); box-shadow:0 0 12px var(--cyan);
+    animation:blink 2.2s ease-in-out infinite;
+  }
+  @keyframes blink{0%,100%{opacity:1;} 50%{opacity:0.3;}}
+
+  h1{
+    font-size:clamp(2.6rem, 7vw, 5.2rem);
+    font-weight:700;
+    line-height:1.02;
+    max-width:920px;
+  }
+  h1 .sub{
+    display:block;
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:0.38em;
+    color:var(--text-lo);
+    margin-top:14px;
+    letter-spacing:0;
+  }
+
+  .signal{
+    margin-top:38px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.95rem;
+    color:var(--text-lo);
+    display:flex; align-items:center; gap:10px;
+    border-left:2px solid var(--cyan);
+    padding-left:14px;
+  }
+  .signal span#signal-word{color:var(--cyan); font-weight:500;}
+
+  .scroll-hint{
+    margin-top:70px;
+    font-size:0.75rem; color:var(--text-faint);
+    font-family:'IBM Plex Mono', monospace;
+    letter-spacing:0.08em; text-transform:uppercase;
+  }
+
+  /* ===== section shared ===== */
+  section{position:relative; z-index:1; padding:110px 0;}
+  .section-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--amber); margin-bottom:16px;
+  }
+  h2{font-size:clamp(1.8rem, 4vw, 2.6rem); margin-bottom:20px; max-width:700px;}
+  .lede{
+    font-size:1.05rem; color:var(--text-lo); max-width:620px; margin-bottom:20px;
+  }
+
+  /* ===== intro ===== */
+  .intro p{
+    font-size:1.15rem; color:var(--text-lo); max-width:680px;
+  }
+  .intro strong{color:var(--text-hi); font-weight:500;}
+
+  /* ===== timeline ===== */
+  .timeline{
+    position:relative;
+    margin-top:60px;
+    padding-left:32px;
+    border-left:1px solid var(--line);
+  }
+  .tl-item{
+    position:relative;
+    padding-bottom:52px;
+    opacity:0; transform:translateY(16px);
+    transition:opacity 0.6s ease, transform 0.6s ease;
+  }
+  .tl-item.visible{opacity:1; transform:translateY(0);}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:'';
+    position:absolute; left:-38px; top:4px;
+    width:11px; height:11px; border-radius:50%;
+    background:var(--void);
+    border:2px solid var(--cyan);
+  }
+  .tl-year{
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--cyan); font-size:0.9rem; margin-bottom:6px; display:block;
+  }
+  .tl-item h3{font-size:1.15rem; margin-bottom:6px; font-weight:600;}
+  .tl-item p{color:var(--text-lo); max-width:560px; font-size:0.96rem;}
+
+  /* ===== domains grid ===== */
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:16px;
+    margin-top:50px;
+  }
+  .card{
+    background:var(--panel-soft);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:26px 22px;
+    backdrop-filter:blur(14px);
+    transition:border-color 0.3s ease, transform 0.3s ease, background 0.3s ease;
+  }
+  .card:hover{
+    border-color:var(--cyan);
+    transform:translateY(-3px);
+    background:rgba(94,230,208,0.05);
+  }
+  .card .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem; color:var(--text-faint);
+    text-transform:uppercase; letter-spacing:0.08em;
+    margin-bottom:10px; display:block;
+  }
+  .card h3{font-size:1.08rem; margin-bottom:8px; font-weight:600;}
+  .card p{font-size:0.9rem; color:var(--text-lo);}
+
+  /* ===== writing spotlight ===== */
+  .spotlight{
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:50px; align-items:center;
+    background:var(--panel-soft); border:1px solid var(--border); border-radius:20px;
+    padding:50px; margin-top:50px; backdrop-filter:blur(14px);
+  }
+  .spotlight blockquote{
+    font-family:'Fraunces', serif; font-style:italic;
+    font-size:1.5rem; line-height:1.4; color:var(--text-hi);
+  }
+  .spotlight cite{
+    display:block; margin-top:16px; font-family:'IBM Plex Mono', monospace;
+    font-size:0.82rem; color:var(--text-lo); font-style:normal;
+  }
+  .stat-block{
+    display:flex; flex-direction:column; gap:22px;
+    border-left:1px solid var(--line); padding-left:36px;
+  }
+  .stat{display:flex; flex-direction:column;}
+  .stat .num{
+    font-family:'IBM Plex Mono', monospace; font-size:2.2rem; color:var(--amber); font-weight:500;
+  }
+  .stat .lbl{font-size:0.82rem; color:var(--text-faint); text-transform:uppercase; letter-spacing:0.06em;}
+
+  /* ===== footer ===== */
+  footer{
+    position:relative; z-index:1;
+    padding:70px 0 60px;
+    border-top:1px solid var(--line);
+  }
+  footer h2{font-size:1.8rem;}
+  .links{display:flex; gap:28px; flex-wrap:wrap; margin-top:28px;}
+  .links a{
+    font-family:'IBM Plex Mono', monospace; font-size:0.9rem;
+    color:var(--text-lo); border-bottom:1px solid var(--line); padding-bottom:4px;
+  }
+  .links a:hover{color:var(--cyan); border-color:var(--cyan); text-decoration:none;}
+  .foot-note{margin-top:50px; font-size:0.78rem; color:var(--text-faint); font-family:'IBM Plex Mono', monospace;}
+
+  @media (max-width:760px){
+    .grid{grid-template-columns:1fr;}
+    .spotlight{grid-template-columns:1fr; padding:32px;}
+    .stat-block{border-left:none; border-top:1px solid var(--line); padding-left:0; padding-top:24px; flex-direction:row; flex-wrap:wrap; gap:30px;}
+    header{padding:100px 0 40px;}
+    section{padding:70px 0;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001s !important; transition-duration:0.001s !important;}
+  }
+</style>
+</head>
+<body>
+
+<div class="circuit-bg" aria-hidden="true">
+  <svg viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice">
+    <path d="M0,120 L220,120 L260,160 L500,160 L540,120 L1000,120"/>
+    <path class="pulse" d="M0,120 L220,120 L260,160 L500,160 L540,120 L1000,120"/>
+    <path d="M0,340 L180,340 L180,420 L420,420 L460,460 L1000,460"/>
+    <path class="pulse amber" d="M0,340 L180,340 L180,420 L420,420 L460,460 L1000,460"/>
+    <path d="M0,620 L260,620 L300,660 L640,660 L680,700 L1000,700"/>
+    <path class="pulse delay2" d="M0,620 L260,620 L300,660 L640,660 L680,700 L1000,700"/>
+    <path d="M0,860 L200,860 L240,900 L1000,900"/>
+    <path class="pulse amber delay2" d="M0,860 L200,860 L240,900 L1000,900"/>
+    <circle cx="260" cy="160" r="4"/>
+    <circle cx="180" cy="420" r="4"/>
+    <circle cx="300" cy="660" r="4"/>
+    <circle cx="540" cy="120" r="4"/>
+    <circle cx="460" cy="460" r="4"/>
+    <circle cx="680" cy="700" r="4"/>
+  </svg>
+</div>
+
+<header class="wrap">
+  <div class="eyebrow">Terminale · 16 ans · Côte d'Ivoire · 2026</div>
+  <h1>
+    Henock Agbo
+    <span class="sub">Un seul courant, plusieurs circuits.</span>
+  </h1>
+  <div class="signal mono">&gt; lecture du signal : <span id="signal-word">CHIMIE</span></div>
+  <div class="scroll-hint">↓ parcours</div>
+</header>
+
+<section class="wrap intro">
+  <div class="section-label">Origine</div>
+  <h2>Tout a commencé à 6 ans, sans les moyens de suivre les instructions.</h2>
+  <p>
+    Né en 2010 en Côte d'Ivoire, <strong>Henock Agbo</strong> grandit dans un contexte modeste où l'électronique le fascine déjà.
+    Sans les moyens d'acheter quoi que ce soit, il construit ses premières inventions à force d'essais qui ne fonctionnent pas
+    &nbsp;— jusqu'à ce qu'ils fonctionnent : <strong>un skateboard et une balançoire</strong>, fabriqués de zéro, qui tiendront de longues années.
+    C'est ce même réflexe — comprendre en construisant — qui le mènera, quelques années plus tard, de la chimie universitaire
+    à l'intelligence artificielle.
+  </p>
+</section>
+
+<section class="wrap">
+  <div class="section-label">Parcours</div>
+  <h2>Une progression rapide, entamée avant l'heure.</h2>
+  <p class="lede">Entré à l'école à 4 ans, en 5ème à 11 ans : le rythme scolaire d'Henock a toujours devancé son âge — tout comme le reste.</p>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <span class="tl-year mono">2010</span>
+      <h3>Naissance, Côte d'Ivoire</h3>
+      <p>Un contexte modeste, où l'électronique devient très vite une fascination.</p>
+    </div>
+    <div class="tl-item">
+      <span class="tl-year mono">~2014 · 4 ans</span>
+      <h3>Entrée à l'école, en CP1</h3>
+      <p>Un an d'avance qui donnera le ton du reste du parcours.</p>
+    </div>
+    <div class="tl-item">
+      <span class="tl-year mono">~2016 · 6 ans</span>
+      <h3>Premières inventions</h3>
+      <p>Un skateboard et une balançoire, construits sans moyens, à coups d'expériences ratées puis réussies.</p>
+    </div>
+    <div class="tl-item">
+      <span class="tl-year mono">~2022 · 4ème, 12 ans</span>
+      <h3>Chimie de niveau universitaire</h3>
+      <p>Un enseignant-chercheur français, frappé par son niveau, lui propose de devenir son assistant — à 12 ans.</p>
+    </div>
+    <div class="tl-item">
+      <span class="tl-year mono">2023 – 2024</span>
+      <h3>Conception d'un badgeur</h3>
+      <p>Un appareil capable de détecter la conductivité, amélioré l'année suivante.</p>
+    </div>
+    <div class="tl-item">
+      <span class="tl-year mono">2025</span>
+      <h3>Passage à l'échelle</h3>
+      <p>La volonté d'aller au-delà des prototypes personnels.</p>
+    </div>
+    <div class="tl-item">
+      <span class="tl-year mono">2026</span>
+      <h3>PhilTech, l'IA AURA, et la Terminale</h3>
+      <p>Lancement de PhilTech, une mini start-up (non officielle) réunissant plusieurs branches, avec des collaborateurs plus âgés que lui. En parallèle : AURA, une intelligence artificielle multimodale.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="section-label">Domaines</div>
+  <h2>Le mot "polymathe" existe pour une raison.</h2>
+  <p class="lede">Ce qui suit n'est qu'une partie visible — chaque domaine continue d'évoluer en parallèle des autres.</p>
+
+  <div class="grid">
+    <div class="card">
+      <span class="tag mono">01 · sciences</span>
+      <h3>Chimie</h3>
+      <p>Une passion d'autodidacte, poussée jusqu'au niveau universitaire dès le collège.</p>
+    </div>
+    <div class="card">
+      <span class="tag mono">02 · ingénierie</span>
+      <h3>Invention & électronique</h3>
+      <p>Du skateboard bricolé à 6 ans au détecteur de conductivité conçu à 13 ans.</p>
+    </div>
+    <div class="card">
+      <span class="tag mono">03 · entrepreneuriat</span>
+      <h3>PhilTech</h3>
+      <p>Mini start-up non officielle lancée en 2026, plusieurs branches, plusieurs collaborateurs.</p>
+    </div>
+    <div class="card">
+      <span class="tag mono">04 · ia</span>
+      <h3>Intelligence artificielle</h3>
+      <p>Créateur d'AURA, une intelligence artificielle multimodale.</p>
+    </div>
+    <div class="card">
+      <span class="tag mono">05 · lettres</span>
+      <h3>Écriture</h3>
+      <p>Trois œuvres publiées, dont une lue par des milliers de lecteurs sur Webnovel.</p>
+    </div>
+    <div class="card">
+      <span class="tag mono">06 · création</span>
+      <h3>Art & musique</h3>
+      <p>Deux pratiques menées en parallèle du reste, comme deux autres langages.</p>
+    </div>
+    <div class="card">
+      <span class="tag mono">07 · logique</span>
+      <h3>Jeux</h3>
+      <p>Conception de jeux, entre mécanique et narration.</p>
+    </div>
+    <div class="card">
+      <span class="tag mono">08 · sciences</span>
+      <h3>Médecine</h3>
+      <p>Étude personnelle poursuivie en parallèle du lycée.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="section-label">Écriture</div>
+  <div class="spotlight">
+    <div>
+      <blockquote>
+        Le mystère caché derrière celui de la vente
+        <cite>Première œuvre publiée d'Henock Agbo, sur Webnovel</cite>
+      </blockquote>
+    </div>
+    <div class="stat-block">
+      <div class="stat">
+        <span class="num mono">4 700</span>
+        <span class="lbl">lecteurs</span>
+      </div>
+      <div class="stat">
+        <span class="num mono">5</span>
+        <span class="lbl">mois</span>
+      </div>
+      <div class="stat">
+        <span class="num mono">3</span>
+        <span class="lbl">œuvres publiées</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <h2>Envie d'échanger ?</h2>
+  <p class="lede">Projets, collaborations, lecture — chaque domaine a sa propre porte d'entrée.</p>
+  <div class="links">
+    <a href="mailto:contact@example.com">contact@example.com</a>
+    <a href="#" target="_blank">Webnovel</a>
+    <a href="https://github.com/henockagbo4-creator" target="_blank">GitHub</a>
+  </div>
+  <div class="foot-note mono">© 2026 Henock Agbo — Abidjan, Côte d'Ivoire</div>
+</footer>
+
+<script>
+  // Signal word rotation in hero
+  const words = ["CHIMIE", "ÉLECTRONIQUE", "ÉCRITURE", "INTELLIGENCE ARTIFICIELLE", "MÉDECINE", "MUSIQUE", "ART", "PHILTECH"];
+  let wi = 0;
+  const signalEl = document.getElementById('signal-word');
+  setInterval(() => {
+    wi = (wi + 1) % words.length;
+    signalEl.textContent = words[wi];
+  }, 2200);
+
+  // Timeline reveal on scroll
+  const items = document.querySelectorAll('.tl-item');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.2 });
+  items.forEach(item => observer.observe(item));
+</script>
+
+</body>
+</html>
