@@ -4,16 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Henock Agbo — Chimiste, inventeur, écrivain, bâtisseur d'IA</title>
-<meta name="description" content="Henock Agbo, 16 ans, Côte d'Ivoire. Chimie, invention, écriture, intelligence artificielle : le parcours d'un hyperpolymathe autodidacte.">
+<meta name="description" content="Henock Agbo, 16 ans, Côte d'Ivoire. Chimie, invention, écriture, intelligence artificielle.">
 <meta property="og:title" content="Henock Agbo — un seul courant, plusieurs circuits">
 <meta property="og:description" content="Chimie, invention, écriture, intelligence artificielle. Le parcours d'un hyperpolymathe de 16 ans né en Côte d'Ivoire.">
 <meta property="og:type" content="website">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
-
   :root{
     --void:#0A0E14;
     --panel:#111925;
@@ -34,7 +29,7 @@
   body{
     background:var(--void);
     color:var(--text-hi);
-    font-family:'IBM Plex Sans', sans-serif;
+    font-family:system-ui, -apple-system, sans-serif;
     line-height:1.6;
     overflow-x:hidden;
   }
@@ -45,9 +40,9 @@
 
   .wrap{max-width:1080px; margin:0 auto; padding:0 24px;}
 
-  h1,h2,h3{font-family:'Space Grotesk', sans-serif; letter-spacing:-0.01em;}
+  h1,h2,h3{font-family:system-ui, -apple-system, sans-serif; letter-spacing:-0.01em; font-weight:700;}
 
-  .mono{font-family:'IBM Plex Mono', monospace;}
+  .mono{font-family:'Courier New', monospace;}
 
   /* ===== background circuit texture ===== */
   .circuit-bg{
@@ -82,7 +77,7 @@
     padding:80px 0 60px;
   }
   .eyebrow{
-    font-family:'IBM Plex Mono', monospace;
+    font-family:'Courier New', monospace;
     font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase;
     color:var(--cyan); margin-bottom:22px;
     display:flex; align-items:center; gap:10px;
@@ -102,7 +97,7 @@
   }
   h1 .sub{
     display:block;
-    font-family:'Fraunces', serif;
+    font-family:system-ui, -apple-system, sans-serif;
     font-style:italic;
     font-weight:400;
     font-size:0.38em;
@@ -113,7 +108,7 @@
 
   .signal{
     margin-top:38px;
-    font-family:'IBM Plex Mono', monospace;
+    font-family:'Courier New', monospace;
     font-size:0.95rem;
     color:var(--text-lo);
     display:flex; align-items:center; gap:10px;
@@ -125,14 +120,14 @@
   .scroll-hint{
     margin-top:70px;
     font-size:0.75rem; color:var(--text-faint);
-    font-family:'IBM Plex Mono', monospace;
+    font-family:'Courier New', monospace;
     letter-spacing:0.08em; text-transform:uppercase;
   }
 
   /* ===== section shared ===== */
   section{position:relative; z-index:1; padding:110px 0;}
   .section-label{
-    font-family:'IBM Plex Mono', monospace;
+    font-family:'Courier New', monospace;
     font-size:0.78rem; letter-spacing:0.14em; text-transform:uppercase;
     color:var(--amber); margin-bottom:16px;
   }
@@ -170,7 +165,7 @@
     border:2px solid var(--cyan);
   }
   .tl-year{
-    font-family:'IBM Plex Mono', monospace;
+    font-family:'Courier New', monospace;
     color:var(--cyan); font-size:0.9rem; margin-bottom:6px; display:block;
   }
   .tl-item h3{font-size:1.15rem; margin-bottom:6px; font-weight:600;}
@@ -197,7 +192,7 @@
     background:rgba(94,230,208,0.05);
   }
   .card .tag{
-    font-family:'IBM Plex Mono', monospace;
+    font-family:'Courier New', monospace;
     font-size:0.72rem; color:var(--text-faint);
     text-transform:uppercase; letter-spacing:0.08em;
     margin-bottom:10px; display:block;
@@ -212,11 +207,11 @@
     padding:50px; margin-top:50px; backdrop-filter:blur(14px);
   }
   .spotlight blockquote{
-    font-family:'Fraunces', serif; font-style:italic;
+    font-family:system-ui, -apple-system, sans-serif; font-style:italic;
     font-size:1.5rem; line-height:1.4; color:var(--text-hi);
   }
   .spotlight cite{
-    display:block; margin-top:16px; font-family:'IBM Plex Mono', monospace;
+    display:block; margin-top:16px; font-family:'Courier New', monospace;
     font-size:0.82rem; color:var(--text-lo); font-style:normal;
   }
   .stat-block{
@@ -225,7 +220,7 @@
   }
   .stat{display:flex; flex-direction:column;}
   .stat .num{
-    font-family:'IBM Plex Mono', monospace; font-size:2.2rem; color:var(--amber); font-weight:500;
+    font-family:'Courier New', monospace; font-size:2.2rem; color:var(--amber); font-weight:500;
   }
   .stat .lbl{font-size:0.82rem; color:var(--text-faint); text-transform:uppercase; letter-spacing:0.06em;}
 
@@ -238,11 +233,11 @@
   footer h2{font-size:1.8rem;}
   .links{display:flex; gap:28px; flex-wrap:wrap; margin-top:28px;}
   .links a{
-    font-family:'IBM Plex Mono', monospace; font-size:0.9rem;
+    font-family:'Courier New', monospace; font-size:0.9rem;
     color:var(--text-lo); border-bottom:1px solid var(--line); padding-bottom:4px;
   }
   .links a:hover{color:var(--cyan); border-color:var(--cyan); text-decoration:none;}
-  .foot-note{margin-top:50px; font-size:0.78rem; color:var(--text-faint); font-family:'IBM Plex Mono', monospace;}
+  .foot-note{margin-top:50px; font-size:0.78rem; color:var(--text-faint); font-family:'Courier New', monospace;}
 
   @media (max-width:760px){
     .grid{grid-template-columns:1fr;}
